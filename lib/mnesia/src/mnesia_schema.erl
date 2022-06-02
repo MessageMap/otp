@@ -288,10 +288,10 @@ read_nodes() ->
 		{ok, _Source, CreateList} ->
 		    Cs = list2cs(CreateList),
 		    {ok, Cs#cstruct.disc_copies ++ Cs#cstruct.ram_copies};
-		{error, Reason} ->
+		{error, Reason} -> %% _BA_Note: change to just true
 		    {error, Reason}
 	    end;
-	{error, Reason} ->
+	{error, Reason} ->  %% _BA_Note: change to just true
 	    {error, Reason}
     end.
 
@@ -442,12 +442,12 @@ remote_read_schema() ->
     case mnesia_lib:ensure_loaded(?APPLICATION) of
 	ok ->
 	    case mnesia_monitor:get_env(schema_location) of
-		opt_disc ->
+		opt_disc ->  %% _BA_Note: Why they do the same thing
 		    read_schema(false);
 		_ ->
 		    read_schema(false)
 	    end;
-	{error, Reason} ->
+	{error, Reason} ->  %% _BA_Note: Dig into this on why they do this
 	    {error, Reason}
     end.
 
@@ -729,7 +729,7 @@ api_list2cs(List) when is_list(List) ->
 api_list2cs(Other) ->
     mnesia:abort({badarg, Other}).
 
-vsn_cs2list(Cs) ->
+vsn_cs2list(Cs) -> %% _BA_Note: Function is a pass throu just remove it, check if exported
     cs2list(Cs).
 
 cs2list(false, Cs) ->
@@ -907,6 +907,7 @@ pick_external_copies(List, ExtTypes) ->
 	      end
       end, [], List).
 
+ %% _BA_Note: Passthrougth remove when and just compare
 expand_storage_type(S) when S==ram_copies;
 			    S==disc_copies;
 			    S==disc_only_copies ->
@@ -919,6 +920,7 @@ expand_storage_type(S) ->
 	    {ext, Alias, Mod}
     end.
 
+ %% _BA_Note: More passthrough stuff to be removed
 get_ext_types() ->
     get_schema_user_property(mnesia_backend_types).
 
@@ -931,6 +933,7 @@ get_schema_user_property(Key) ->
 	{_, Types} -> Types
     end.
 
+ %% _BA_Note: what?
 get_ext_types_disc() ->
     try get_ext_types_disc_()
     catch
@@ -948,7 +951,7 @@ get_ext_types_disc_() ->
                         {K2, Types} ->
                             Types;
                         _ ->
-                            []
+                            []  %% _BA_Note: can we condence this?
                     end;
                 _ ->
                     []
@@ -1054,7 +1057,7 @@ intersect_types([S]) ->
     S.
 
 verify_external_copies(#cstruct{external_copies = []} = Cs) ->
-    Cs;
+    Cs;  %% _BA_Note: Return self?
 verify_external_copies(#cstruct{name = Tab, external_copies = EC} = Cs) ->
     Bad = {bad_type, Tab, {external_copies, EC}},
     AllECNodes = lists:concat([Ns || {_, Ns} <- EC,
@@ -1221,7 +1224,7 @@ good_ix_pos(_, _, _, _) ->
 
 check_if_allow_index_on_key() ->
     case mnesia_monitor:get_env(allow_index_on_key) of
-	true ->
+	true -> %% _BA_Note: change to just true/false pass through, change to function check?
 	    true;
 	_ ->
 	    false
@@ -1701,6 +1704,7 @@ make_add_table_copy(Tab, Node, Storage) ->
 
     %% Check storage and if node is running
     IsRunning = lists:member(Node, val({current, db_nodes})),
+     %% _BA_Note: can we condence this If statement?
     if
 	Tab == schema ->
 	    if
@@ -1987,7 +1991,7 @@ make_del_snmp(Tab) ->
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
-
+ %% _BA_Note: Can we condence with when fun == ignore
 transform_table(Tab, Fun, NewAttrs, NewRecName)
   when is_function(Fun), is_list(NewAttrs), is_atom(NewRecName) ->
     schema_transaction(fun() -> do_transform_table(Tab, Fun, NewAttrs, NewRecName) end);
@@ -2416,6 +2420,7 @@ prepare_op(Tid, {op, create_table, TabDef}, _WaitFor) ->
     Storage = mnesia_lib:cs_to_storage_type(node(), Cs),
     UseDir = mnesia_monitor:use_dir(),
     Tab = Cs#cstruct.name,
+     %% _BA_Note: Fix spacing
     case Storage of
         disc_copies when UseDir == false ->
 	    UseDirReason = {bad_type, Tab, Storage, node()},
@@ -2872,6 +2877,7 @@ undo_prepare_op(Tid, {op, create_table, TabDef}) ->
     Tab = Cs#cstruct.name,
     mnesia_lib:unset({Tab, create_table}),
     delete_cstruct(Tid, Cs),
+     %% _BA_Note: Can we speed this up at all?
     case mnesia_lib:cs_to_storage_type(node(), Cs) of
 	unknown ->
 	    ok;
@@ -2937,7 +2943,7 @@ undo_prepare_op(_Tid, {op, change_table_copy_type, N, FromS, ToS, TabDef})
     Tab = Cs#cstruct.name,
     mnesia_checkpoint:tm_change_table_copy_type(Tab, ToS, FromS),
     Dmp = mnesia_lib:tab2dmp(Tab),
-
+ %% _BA_Note: Clean this up, spacing and when to compined
     case {FromS, ToS} of
         {ram_copies, disc_copies} when Tab == schema ->
             file:delete(Dmp),

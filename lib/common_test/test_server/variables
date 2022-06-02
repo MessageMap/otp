@@ -1,0 +1,66 @@
+{longnames,false}.
+{platform_id,"OTP 25/development/Linux-gnu/X86_64/64/JIT/S4/KP/A1"}.
+{platform_filename,"otp_25_development_linux-gnu_x86_64_64_jit_s4_kp_a1"}.
+{rsh_name,"ssh"}.
+{platform_label,"OTP/development/Linux-gnu/X86_64/64/JIT/S4/KP/A1"}.
+{ts_net_dir,[]}.
+{erl_flags,[]}.
+{erl_release,"25"}.
+{ts_testcase_callback,[]}.
+{'EMULATOR',"beam"}.
+{emu_threads,"true"}.
+{type_marker,[]}.
+{'DS',"/"}.
+{'PS',":"}.
+{erts_lib_include,"/home/adamsbd/src/otp/lib/common_test/make_test_dir/otp/erts-13.0/include"}.
+{erts_lib_include_generated,"/home/adamsbd/src/otp/lib/common_test/make_test_dir/otp/erts-13.0/include"}.
+{erts_lib_include_internal,"/home/adamsbd/src/otp/lib/common_test/make_test_dir/otp/erts-13.0/include/internal"}.
+{erts_lib_include_internal_generated,"/home/adamsbd/src/otp/lib/common_test/make_test_dir/otp/erts-13.0/include/internal"}.
+{erts_lib_path,"/home/adamsbd/src/otp/lib/common_test/make_test_dir/otp/erts-13.0/lib"}.
+{erts_lib_internal_path,"/home/adamsbd/src/otp/lib/common_test/make_test_dir/otp/erts-13.0/lib/internal"}.
+{erts_lib_multi_threaded,"liberts_r.a"}.
+{erts_lib_single_threaded,"liberts.a"}.
+{erts_lib_make_ethread,"/home/adamsbd/src/otp/lib/common_test/make_test_dir/otp/erts-13.0/include/internal/ethread.mk"}.
+{erts_lib_make_internal,"/home/adamsbd/src/otp/lib/common_test/make_test_dir/otp/erts-13.0/include/internal/erts_internal.mk"}.
+{ssl_libdir,"/home/adamsbd/src/otp/lib/common_test/make_test_dir/otp/lib/ssl-10.8"}.
+{is_source_build,true}.
+{erl_name,"erl"}.
+{'SHLIB_RULES',".SUFFIXES:\n.SUFFIXES: .so .o .c\n\n.c.so:\n\tgcc -c -fPIC -D_THREAD_SAFE -D_REENTRANT -g -O2 -D_THREAD_SAFE -D_REENTRANT $(SHLIB_EXTRA_CFLAGS) -I/home/adamsbd/src/otp/lib/common_test/make_test_dir/otp/usr/include -DPACKAGE_NAME=\\\"\\\" -DPACKAGE_TARNAME=\\\"\\\" -DPACKAGE_VERSION=\\\"\\\" -DPACKAGE_STRING=\\\"\\\" -DPACKAGE_BUGREPORT=\\\"\\\" -DPACKAGE_URL=\\\"\\\" -DHAVE_LIBM=1 -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_LINUX_TCP_H=1 -DHAVE_SANE_LINUX_TCP_H=1 -DHAVE_POLL_H=1 -DHAVE_STRERROR=1 -DHAVE_VSNPRINTF=1 -DHAVE_USLEEP=1 -DHAVE_LIBRESOLV=1 -DHAVE_FINITE=1 $<\n\tgcc   -shared $(SHLIB_EXTRA_LDFLAGS) -o $@ $*.o  $(SHLIB_EXTRA_LDLIBS)"}.
+{jinterface_classpath,"/home/adamsbd/src/otp/lib/common_test/make_test_dir/otp/lib/jinterface-1.13/priv/OtpErlang.jar"}.
+{erl_interface_libpath,"/home/adamsbd/src/otp/lib/common_test/make_test_dir/otp/lib/erl_interface-5.3/lib"}.
+{erl_interface_sock_libs,[]}.
+{erl_interface_lib,"/home/adamsbd/src/otp/lib/common_test/make_test_dir/otp/lib/erl_interface-5.3/lib/liberl_interface.a"}.
+{erl_interface_eilib,"/home/adamsbd/src/otp/lib/common_test/make_test_dir/otp/lib/erl_interface-5.3/lib/libei.a"}.
+{erl_interface_lib_drv,"/home/adamsbd/src/otp/lib/common_test/make_test_dir/otp/lib/erl_interface-5.3/lib/liberl_interface.a"}.
+{erl_interface_eilib_drv,"/home/adamsbd/src/otp/lib/common_test/make_test_dir/otp/lib/erl_interface-5.3/lib/libei.a"}.
+{erl_interface_threadlib,"-lpthread"}.
+{erl_interface_include,"/home/adamsbd/src/otp/lib/common_test/make_test_dir/otp/lib/erl_interface-5.3/include"}.
+{erl_interface_mk_include,"/home/adamsbd/src/otp/lib/common_test/make_test_dir/otp/lib/erl_interface-5.3/src/eidefs.mk"}.
+{erl_include,"/home/adamsbd/src/otp/lib/common_test/make_test_dir/otp/usr/include"}.
+{'WSL',[]}.
+{test_c_compiler,"{gnuc, undefined}"}.
+{make_command,"make"}.
+{'JAVAC',"javac"}.
+{'SSLEAY_ROOT',"x86_64-pc-linux-gnu"}.
+{exe,[]}.
+{obj,".o"}.
+{target,"x86_64-pc-linux-gnu"}.
+{os,"linux-gnu"}.
+{'CPU',"x86_64"}.
+{target_host,"@target_host@"}.
+{'LIBS',"-lresolv -lm "}.
+{'ERTS_LIBS',"-lresolv -lm "}.
+{'DEFS',"-DPACKAGE_NAME=\\\"\\\" -DPACKAGE_TARNAME=\\\"\\\" -DPACKAGE_VERSION=\\\"\\\" -DPACKAGE_STRING=\\\"\\\" -DPACKAGE_BUGREPORT=\\\"\\\" -DPACKAGE_URL=\\\"\\\" -DHAVE_LIBM=1 -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_LINUX_TCP_H=1 -DHAVE_SANE_LINUX_TCP_H=1 -DHAVE_POLL_H=1 -DHAVE_STRERROR=1 -DHAVE_VSNPRINTF=1 -DHAVE_USLEEP=1 -DHAVE_LIBRESOLV=1 -DHAVE_FINITE=1"}.
+{dll,".so"}.
+{'SHLIB_EXTRACT_ALL',[]}.
+{'SHLIB_CFLAGS',"-fPIC -D_THREAD_SAFE -D_REENTRANT -g -O2 -D_THREAD_SAFE -D_REENTRANT"}.
+{'SHLIB_LDLIBS',[]}.
+{'SHLIB_LDFLAGS'," -shared"}.
+{'SHLIB_LD',"gcc"}.
+{'CROSSLDFLAGS',[]}.
+{'ERTS_CFLAGS',"-g -O2 -D_THREAD_SAFE -D_REENTRANT"}.
+{'EI_CFLAGS',"-g -O2"}.
+{'CFLAGS',"-g -O2 -D_THREAD_SAFE -D_REENTRANT"}.
+{'LD',"$(CC) $(CFLAGS)"}.
+{'CC',"gcc"}.
+{cross,"no"}.
