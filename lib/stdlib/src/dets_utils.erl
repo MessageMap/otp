@@ -459,11 +459,12 @@ new_cache({Delay, Size}) ->
 %%% 
 
 %% Definitions for the buddy allocator.
+%% TODO Change this bhild more
 -define(MAXBUD, 32).             % 2 GB is maximum file size
 -define(MAXFREELISTS, 50000000). % Bytes reserved for the free lists (at end).
 
-%%-define(DEBUG(X, Y), io:format(X, Y)).
--define(DEBUG(X, Y), true).
+-define(DEBUG(X, Y), io:format(X, Y)).
+%%-define(DEBUG(X, Y), true).
 
 %%% Algorithm : We use a buddy system on each file. This is nicely described
 %%%             in i.e. the last chapter of the first-grade text book 
@@ -642,6 +643,7 @@ set_freelists(Head, Ftab) when Head#head.fixed =/= false ->
 sz2pos(N) when N > 0 ->
     1 + log2(N+1).
 
+%TODO: Speed this up
 %% Returns the i such that 2^(i-1) < N =< 2^i.
 log2(N) when is_integer(N), N >= 0 ->
     if N > ?POW(8) ->
